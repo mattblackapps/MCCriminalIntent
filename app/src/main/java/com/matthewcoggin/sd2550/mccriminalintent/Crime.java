@@ -16,6 +16,9 @@ public class Crime {
         id = UUID.randomUUID();
     }
 
+    @Override
+    public String toString() { return title; }
+
     public UUID getId() {
         return id;
     }

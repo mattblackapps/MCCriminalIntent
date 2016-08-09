@@ -1,25 +1,16 @@
 package com.matthewcoggin.sd2550.mccriminalintent;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.os.Bundle;
 
-public class CrimeActivity extends Activity {
+import java.util.UUID;
+
+public class CrimeActivity extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime);
+    protected Fragment createFragment() {
 
-	    FragmentManager fragmentManager = getFragmentManager();
-	    Fragment fragment = fragmentManager.findFragmentById(R.id.fragmentContainer);
+        UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
 
-	    if(fragment == null) {
-		    fragment = new CrimeFragment();
-		    fragmentManager.beginTransaction()
-				    .add(R.id.fragmentContainer, fragment)
-				    .commit();
-	    }
-    }
+        return CrimeFragment.newInstance(crimeId);
+	}
 }

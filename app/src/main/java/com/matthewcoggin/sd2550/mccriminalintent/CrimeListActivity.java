@@ -1,6 +1,7 @@
 package com.matthewcoggin.sd2550.mccriminalintent;
 
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 
 /**
  * Created by matthew on 8/8/16.

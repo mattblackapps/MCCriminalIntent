@@ -1,14 +1,14 @@
 package com.matthewcoggin.sd2550.mccriminalintent;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 /**
  * Created by matthew on 8/8/16.
  */
-public abstract class SingleFragmentActivity extends Activity {
+public abstract class SingleFragmentActivity extends FragmentActivity {
     protected abstract Fragment createFragment();
 
     @Override
@@ -16,7 +16,7 @@ public abstract class SingleFragmentActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.fragmentContainer);
 
         if(fragment == null) {
